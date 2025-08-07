@@ -1,23 +1,30 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
-<!-- در فایل signup.html -->
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ثبت نام | فروشگاه ویباکس میرزایی</title>
     <link rel="stylesheet" href="style.css">
-    <!-- کتابخانه Supabase را اضافه کنید -->
+    <!-- 1. افزودن کتابخانه Supabase -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
 
+    <!-- 2. هدر به‌روز شده -->
     <header>
         <div class="container header-container">
             <div class="logo-area">
-                <!-- نام فروشگاه در هدر تغییر کرد -->
                 <h1><a href="index.html" class="logo-link">فروشگاه ویباکس میرزایی</a></h1>
             </div>
-            <nav class="auth-nav">
+            <!-- دکمه‌های حالت خروج -->
+            <nav class="auth-nav logged-out">
                 <a href="login.html" class="btn btn-secondary">ورود</a>
                 <a href="signup.html" class="btn btn-primary">ثبت نام</a>
+            </nav>
+            <!-- دکمه‌های حالت ورود (در ابتدا مخفی) -->
+            <nav class="auth-nav logged-in" style="display: none;">
+                <a href="profile.html" class="btn btn-primary">پروفایل من</a>
+                <a href="#" class="btn btn-logout">خروج</a>
             </nav>
         </div>
     </header>
@@ -26,7 +33,8 @@
         <div class="container">
             <div class="form-container">
                 <h2>ایجاد حساب کاربری جدید</h2>
-                <form>
+                <!-- 3. فرم با id جدید -->
+                <form id="signup-form">
                     <div class="form-group">
                         <label for="fullname">نام و نام خانوادگی:</label>
                         <input type="text" id="fullname" name="fullname" placeholder="نام کامل خود را وارد کنید" required>
@@ -39,8 +47,18 @@
                         <label for="password">رمز عبور:</label>
                         <input type="password" id="password" name="password" placeholder="یک رمز عبور قوی انتخاب کنید" required>
                     </div>
-                    <!-- کد جدید برای دکمه در login.html و signup.html -->
-                    <a href="profile.html" class="payment-button" style="display: block; text-align: center; text-decoration: none;">ثبت نام</a>
+
+                    <!-- 4. چک‌باکس "مرا به خاطر بسپار" -->
+                    <div class="form-group form-check">
+                        <input type="checkbox" id="remember-me" name="remember-me" checked>
+                        <label for="remember-me">مرا به خاطر بسپار</label>
+                    </div>
+
+                    <button type="submit" class="payment-button">ثبت نام</button>
+
+                    <!-- 5. المان برای نمایش پیام -->
+                    <p id="form-message" style="margin-top: 15px; text-align: center;"></p>
+
                     <p class="form-switch">قبلاً ثبت نام کرده‌اید؟ <a href="login.html">وارد شوید</a></p>
                 </form>
             </div>
@@ -49,10 +67,13 @@
 
     <footer>
         <div class="container">
-            <!-- نام فروشگاه در فوتر تغییر کرد -->
             <p>&copy; ۱۴۰۳ - تمامی حقوق برای فروشگاه ویباکس میرزایی محفوظ است.</p>
         </div>
     </footer>
+
+    <!-- 6. فراخوانی اسکریپت‌ها -->
+    <script src="session-manager.js"></script>
+    <script src="auth.js"></script>
 
 </body>
 </html>
