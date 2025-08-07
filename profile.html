@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>پروفایل کاربری | فروشگاه ویباکس میرزایی</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
 
@@ -36,7 +35,6 @@
                         <input type="file" id="profile-pic-upload" style="display: none;">
                     </div>
                     <div class="profile-welcome">
-                        <!-- به این h3 یک id دادیم -->
                         <h3 id="profile-welcome-name">در حال بارگذاری...</h3>
                         <p>در اینجا می‌توانید اطلاعات خود را ویرایش کنید.</p>
                     </div>
@@ -44,12 +42,8 @@
                 <form class="profile-form">
                     <div class="form-group">
                         <label for="email">ایمیل:</label>
-                        <!-- ایمیل فقط خواندنی است و مقدار آن توسط جاوا اسکریپت پر می‌شود -->
                         <input type="email" id="email" name="email" readonly>
                     </div>
-                    
-                    <!-- بخش شماره تلفن به طور کامل حذف شد -->
-
                     <hr class="divider">
                     <h4>تغییر رمز عبور</h4>
                     <div class="form-group">
@@ -68,7 +62,8 @@
         </div>
     </footer>
 
-    <!-- اسکریپت‌های لازم برای این صفحه -->
+    <!-- اسکریپت‌های ضروری -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="session-manager.js"></script>
     <script src="profile.js"></script>
 
