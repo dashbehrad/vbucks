@@ -5,23 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ثبت نام | فروشگاه ویباکس میرزایی</title>
     <link rel="stylesheet" href="style.css">
-    <!-- 1. افزودن کتابخانه Supabase -->
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
 
-    <!-- 2. هدر به‌روز شده -->
     <header>
         <div class="container header-container">
             <div class="logo-area">
                 <h1><a href="index.html" class="logo-link">فروشگاه ویباکس میرزایی</a></h1>
             </div>
-            <!-- دکمه‌های حالت خروج -->
             <nav class="auth-nav logged-out">
                 <a href="login.html" class="btn btn-secondary">ورود</a>
                 <a href="signup.html" class="btn btn-primary">ثبت نام</a>
             </nav>
-            <!-- دکمه‌های حالت ورود (در ابتدا مخفی) -->
             <nav class="auth-nav logged-in" style="display: none;">
                 <a href="profile.html" class="btn btn-primary">پروفایل من</a>
                 <a href="#" class="btn btn-logout">خروج</a>
@@ -33,7 +28,6 @@
         <div class="container">
             <div class="form-container">
                 <h2>ایجاد حساب کاربری جدید</h2>
-                <!-- 3. فرم با id جدید -->
                 <form id="signup-form">
                     <div class="form-group">
                         <label for="fullname">نام و نام خانوادگی:</label>
@@ -47,18 +41,12 @@
                         <label for="password">رمز عبور:</label>
                         <input type="password" id="password" name="password" placeholder="یک رمز عبور قوی انتخاب کنید" required>
                     </div>
-
-                    <!-- 4. چک‌باکس "مرا به خاطر بسپار" -->
                     <div class="form-group form-check">
                         <input type="checkbox" id="remember-me" name="remember-me" checked>
                         <label for="remember-me">مرا به خاطر بسپار</label>
                     </div>
-
                     <button type="submit" class="payment-button">ثبت نام</button>
-
-                    <!-- 5. المان برای نمایش پیام -->
                     <p id="form-message" style="margin-top: 15px; text-align: center;"></p>
-
                     <p class="form-switch">قبلاً ثبت نام کرده‌اید؟ <a href="login.html">وارد شوید</a></p>
                 </form>
             </div>
@@ -71,9 +59,18 @@
         </div>
     </footer>
 
-    <!-- 6. فراخوانی اسکریپت‌ها -->
+    <!-- اسکریپت‌های ضروری -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="session-manager.js"></script>
     <script src="auth.js"></script>
 
 </body>
-</html>
+</html>```
+
+### جمع‌بندی نهایی
+
+1.  کدهای بالا را به طور کامل در فایل‌های مربوطه جایگزین کنید.
+2.  مطمئن شوید که فایل‌های جاوا اسکریپت شما (`session-manager.js`, `auth.js`, `profile.js`, `app.js`) همگی در ریپازیتوری شما وجود دارند.
+3.  تمام این تغییرات را در GitHub آپلود کنید.
+
+با این تغییرات، مشکل شما به طور قطعی حل خواهد شد. `session-manager.js` اکنون در تمام صفحات حضور دارد و می‌تواند به محض تغییر وضعیت ورود کاربر، هدر و دیگر بخش‌های صفحه را به درستی آپدیت کند.
