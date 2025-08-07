@@ -1,0 +1,379 @@
+/* --- Import Font --- */
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;700&display=swap');
+
+/* --- General Styles --- */
+body {
+    font-family: 'Vazirmatn', sans-serif;
+    background-color: #121212; /* پس‌زمینه اصلی دارک */
+    color: #e0e0e0; /* رنگ متن اصلی */
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* --- Header --- */
+header {
+    background-color: #1f1f1f;
+    padding: 20px 0;
+    text-align: center;
+    border-bottom: 2px solid #8A2BE2; /* رنگ بنفش جذاب */
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    color: #ffffff;
+}
+
+header p {
+    margin: 5px 0 0;
+    color: #b3b3b3;
+}
+
+/* --- Main Content & Products --- */
+main h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 40px;
+    color: #ffffff;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.product-card {
+    background-color: #1e1e1e;
+    border: 1px solid #333;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+.product-card img {
+    max-width: 100px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+
+.product-card h3 {
+    font-size: 1.5rem;
+    margin: 10px 0;
+    color: #ffffff;
+}
+
+.product-card .price {
+    font-size: 1.2rem;
+    color: #4CAF50; /* رنگ سبز برای قیمت */
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.buy-button {
+    background-color: #8A2BE2; /* رنگ اصلی دکمه */
+    color: #ffffff;
+    border: none;
+    padding: 12px 25px;
+    font-size: 1rem;
+    font-family: 'Vazirmatn', sans-serif;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.buy-button:hover {
+    background-color: #7B24CB; /* رنگ هاور دکمه */
+}
+
+/* --- Footer --- */
+footer {
+    background-color: #1f1f1f;
+    text-align: center;
+    padding: 15px 0;
+    margin-top: 40px;
+    border-top: 1px solid #333;
+}
+/* --- Checkout Page Styles --- */
+
+.checkout-container {
+    max-width: 700px;
+    margin: 40px auto;
+    background-color: #1e1e1e;
+    padding: 30px;
+    border-radius: 10px;
+    border: 1px solid #333;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.checkout-container h2 {
+    text-align: right;
+    color: #8A2BE2; /* رنگ بنفش تم */
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #444;
+}
+
+/* Order Summary */
+.order-summary {
+    margin-bottom: 30px;
+}
+
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    font-size: 1.1rem;
+}
+
+.summary-item span {
+    color: #b3b3b3;
+}
+
+.summary-item strong {
+    color: #ffffff;
+}
+
+/* Buyer Form */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #ccc;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    background-color: #333;
+    border: 1px solid #555;
+    border-radius: 5px;
+    color: #e0e0e0;
+    font-size: 1rem;
+    font-family: 'Vazirmatn', sans-serif;
+    box-sizing: border-box; /* برای جلوگیری از مشکلات عرض */
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #8A2BE2;
+    box-shadow: 0 0 5px rgba(138, 43, 226, 0.5);
+}
+
+/* Payment Button */
+.payment-button {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background-color: #4CAF50; /* رنگ سبز برای تایید نهایی */
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    font-family: 'Vazirmatn', sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.payment-button:hover {
+    background-color: #45a049;
+}
+/* --- Security Notice Styles --- */
+.security-notice {
+    background-color: rgba(255, 165, 0, 0.1); /* پس‌زمینه نارنجی شفاف */
+    color: #ffcc80; /* رنگ متن هشدار */
+    border: 1px solid #ffa500; /* حاشیه نارنجی */
+    border-radius: 5px;
+    padding: 15px;
+    margin-top: 10px;
+    margin-bottom: 25px;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.security-notice p {
+    margin: 0;
+}
+
+.security-notice strong {
+    color: #ffffff;
+}
+/* --- Header Buttons and Layout --- */
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-link {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.auth-nav {
+    display: flex;
+    gap: 15px;
+}
+
+.btn {
+    padding: 8px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-family: 'Vazirmatn', sans-serif;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: #8A2BE2;
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    background-color: #7B24CB;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: #ffffff;
+    border: 1px solid #8A2BE2;
+}
+
+.btn-secondary:hover {
+    background-color: #8A2BE2;
+    color: #ffffff;
+}
+
+/* --- Login/Signup Form Styles --- */
+.form-container {
+    max-width: 500px;
+    margin: 60px auto;
+    background-color: #1e1e1e;
+    padding: 40px;
+    border-radius: 10px;
+    border: 1px solid #333;
+}
+
+.form-container h2 {
+    text-align: center;
+    color: #ffffff;
+    margin-bottom: 30px;
+}
+
+.form-switch {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.9rem;
+    color: #b3b3b3;
+}
+
+.form-switch a {
+    color: #8A2BE2;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.form-switch a:hover {
+    text-decoration: underline;
+}
+/* --- Profile Page Styles --- */
+.profile-container {
+    max-width: 700px;
+    margin: 40px auto;
+    background-color: #1e1e1e;
+    padding: 30px 40px;
+    border-radius: 10px;
+    border: 1px solid #333;
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+    gap: 20px;
+}
+
+.profile-picture {
+    position: relative;
+    text-align: center;
+}
+
+.profile-picture img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 3px solid #8A2BE2;
+}
+
+.change-pic-label {
+    display: block;
+    margin-top: 10px;
+    font-size: 0.8rem;
+    color: #8A2BE2;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.change-pic-label:hover {
+    color: #ffffff;
+}
+
+.profile-welcome h3 {
+    margin: 0 0 5px 0;
+    color: #ffffff;
+}
+
+.profile-welcome p {
+    margin: 0;
+    color: #b3b3b3;
+    font-size: 0.9rem;
+}
+
+.divider {
+    border: none;
+    border-top: 1px solid #444;
+    margin: 30px 0;
+}
+
+.profile-form h4 {
+    color: #ccc;
+    margin-bottom: 20px;
+}
+
+/* --- Logout Button Style --- */
+.btn-logout {
+    padding: 8px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-family: 'Vazirmatn', sans-serif;
+    font-size: 0.9rem;
+    background-color: #5c2a2a;
+    color: #ffc2c2;
+    border: 1px solid #a83f3f;
+    transition: all 0.3s ease;
+}
+
+.btn-logout:hover {
+    background-color: #a83f3f;
+    color: #ffffff;
+}

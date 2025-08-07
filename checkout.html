@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- عنوان صفحه تغییر کرد -->
+    <title>تکمیل خرید | فروشگاه ویباکس میرزایی</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="container header-container">
+            <div class="logo-area">
+                <!-- نام فروشگاه در هدر تغییر کرد -->
+                <h1><a href="index.html" class="logo-link">فروشگاه ویباکس میرزایی</a></h1>
+            </div>
+            <nav class="auth-nav">
+                <a href="login.html" class="btn btn-secondary">ورود</a>
+                <a href="signup.html" class="btn btn-primary">ثبت نام</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="checkout-container">
+                <div class="order-summary">
+                    <h2>خلاصه سفارش</h2>
+                    <div class="summary-item">
+                        <span>محصول:</span>
+                        <strong id="product-name">در حال بارگذاری...</strong>
+                    </div>
+                    <div class="summary-item">
+                        <span>مبلغ قابل پرداخت:</span>
+                        <strong id="product-price">...</strong>
+                    </div>
+                </div>
+                <form class="buyer-form">
+                    <h2>اطلاعات اکانت شما</h2>
+                    <div class="security-notice">
+                        <p><strong>توجه مهم:</strong> برای واریز ویباکس، نیاز به ورود موقت به اکانت اپیک گیمز شما داریم. لطفاً پس از تکمیل سفارش و دریافت ویباکس، برای امنیت بیشتر، رمز عبور خود را تغییر دهید.</p>
+                    </div>
+                    <div class="form-group">
+                        <label for="epic-email">ایمیل اکانت اپیک گیمز:</label>
+                        <input type="email" id="epic-email" name="epic-email" placeholder="example@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="epic-password">رمز عبور اکانت اپیک گیمز:</label>
+                        <input type="password" id="epic-password" name="epic-password" placeholder="••••••••" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">شماره تلفن (برای پشتیبانی):</label>
+                        <input type="tel" id="phone" name="phone" placeholder="در صورت بروز مشکل با شما تماس می‌گیریم">
+                    </div>
+                    <button type="submit" class="payment-button">پرداخت نهایی و اتصال به درگاه</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <!-- نام فروشگاه در فوتر تغییر کرد -->
+            <p>&copy; ۱۴۰۳ - تمامی حقوق برای فروشگاه ویباکس میرزایی محفوظ است.</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+
+</body>
+</html>
