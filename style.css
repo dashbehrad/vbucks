@@ -4,8 +4,8 @@
 /* --- General Styles --- */
 body {
     font-family: 'Vazirmatn', sans-serif;
-    background-color: #121212; /* پس‌زمینه اصلی دارک */
-    color: #e0e0e0; /* رنگ متن اصلی */
+    background-color: #121212;
+    color: #e0e0e0;
     margin: 0;
     padding: 0;
     line-height: 1.6;
@@ -22,19 +22,7 @@ body {
 header {
     background-color: #1f1f1f;
     padding: 20px 0;
-    text-align: center;
-    border-bottom: 2px solid #8A2BE2; /* رنگ بنفش جذاب */
-}
-
-header h1 {
-    margin: 0;
-    font-size: 2.5rem;
-    color: #ffffff;
-}
-
-header p {
-    margin: 5px 0 0;
-    color: #b3b3b3;
+    border-bottom: 2px solid #8A2BE2;
 }
 
 /* --- Main Content & Products --- */
@@ -79,13 +67,13 @@ main h2 {
 
 .product-card .price {
     font-size: 1.2rem;
-    color: #4CAF50; /* رنگ سبز برای قیمت */
+    color: #4CAF50;
     font-weight: bold;
     margin-bottom: 20px;
 }
 
 .buy-button {
-    background-color: #8A2BE2; /* رنگ اصلی دکمه */
+    background-color: #8A2BE2;
     color: #ffffff;
     border: none;
     padding: 12px 25px;
@@ -94,10 +82,12 @@ main h2 {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
 }
 
 .buy-button:hover {
-    background-color: #7B24CB; /* رنگ هاور دکمه */
+    background-color: #7B24CB;
 }
 
 /* --- Footer --- */
@@ -108,8 +98,8 @@ footer {
     margin-top: 40px;
     border-top: 1px solid #333;
 }
-/* --- Checkout Page Styles --- */
 
+/* --- Checkout Page Styles --- */
 .checkout-container {
     max-width: 700px;
     margin: 40px auto;
@@ -122,13 +112,12 @@ footer {
 
 .checkout-container h2 {
     text-align: right;
-    color: #8A2BE2; /* رنگ بنفش تم */
+    color: #8A2BE2;
     margin-bottom: 20px;
     padding-bottom: 10px;
     border-bottom: 1px solid #444;
 }
 
-/* Order Summary */
 .order-summary {
     margin-bottom: 30px;
 }
@@ -148,7 +137,6 @@ footer {
     color: #ffffff;
 }
 
-/* Buyer Form */
 .form-group {
     margin-bottom: 20px;
 }
@@ -169,7 +157,7 @@ footer {
     color: #e0e0e0;
     font-size: 1rem;
     font-family: 'Vazirmatn', sans-serif;
-    box-sizing: border-box; /* برای جلوگیری از مشکلات عرض */
+    box-sizing: border-box;
 }
 
 .form-group input:focus {
@@ -178,12 +166,11 @@ footer {
     box-shadow: 0 0 5px rgba(138, 43, 226, 0.5);
 }
 
-/* Payment Button */
 .payment-button {
     display: block;
     width: 100%;
     padding: 15px;
-    background-color: #4CAF50; /* رنگ سبز برای تایید نهایی */
+    background-color: #4CAF50;
     color: #ffffff;
     border: none;
     border-radius: 5px;
@@ -198,11 +185,12 @@ footer {
 .payment-button:hover {
     background-color: #45a049;
 }
+
 /* --- Security Notice Styles --- */
 .security-notice {
-    background-color: rgba(255, 165, 0, 0.1); /* پس‌زمینه نارنجی شفاف */
-    color: #ffcc80; /* رنگ متن هشدار */
-    border: 1px solid #ffa500; /* حاشیه نارنجی */
+    background-color: rgba(255, 165, 0, 0.1);
+    color: #ffcc80;
+    border: 1px solid #ffa500;
     border-radius: 5px;
     padding: 15px;
     margin-top: 10px;
@@ -218,6 +206,7 @@ footer {
 .security-notice strong {
     color: #ffffff;
 }
+
 /* --- Header Buttons and Layout --- */
 .header-container {
     display: flex;
@@ -296,6 +285,7 @@ footer {
 .form-switch a:hover {
     text-decoration: underline;
 }
+
 /* --- Profile Page Styles --- */
 .profile-container {
     max-width: 700px;
@@ -376,4 +366,43 @@ footer {
 .btn-logout:hover {
     background-color: #a83f3f;
     color: #ffffff;
+}
+
+/* --- Remember Me Checkbox Style --- */
+.form-check {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 20px;
+    gap: 10px;
+}
+
+.form-check label {
+    margin-bottom: 0;
+    color: #ccc;
+    cursor: pointer;
+}
+
+.form-check input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+/* --- User Welcome Banner Styles --- */
+.user-welcome-banner {
+    background-color: #2a2a2a;
+    border-bottom: 1px solid #444;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.user-welcome-banner p {
+    margin: 0;
+    color: #e0e0e0;
+    font-size: 1rem;
+}
+
+.user-welcome-banner strong {
+    color: #8A2BE2;
 }
