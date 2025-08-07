@@ -5,23 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>پروفایل کاربری | فروشگاه ویباکس میرزایی</title>
     <link rel="stylesheet" href="style.css">
-    <!-- 1. افزودن کتابخانه Supabase -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
 
-    <!-- 2. هدر به‌روز شده با کلاس‌های کنترلی -->
     <header>
         <div class="container header-container">
             <div class="logo-area">
                 <h1><a href="index.html" class="logo-link">فروشگاه ویباکس میرزایی</a></h1>
             </div>
-            <!-- دکمه‌های حالت خروج -->
             <nav class="auth-nav logged-out">
                 <a href="login.html" class="btn btn-secondary">ورود</a>
                 <a href="signup.html" class="btn btn-primary">ثبت نام</a>
             </nav>
-            <!-- دکمه‌های حالت ورود (در ابتدا مخفی) -->
             <nav class="auth-nav logged-in" style="display: none;">
                 <a href="profile.html" class="btn btn-primary">پروفایل من</a>
                 <a href="#" class="btn btn-logout">خروج</a>
@@ -35,33 +31,30 @@
                 <h2>اطلاعات حساب کاربری</h2>
                 <div class="profile-header">
                     <div class="profile-picture">
-                        <img src="default.jpg" alt="عکس پروفایل">
+                        <img src="https://via.placeholder.com/100/FFFFFF/8A2BE2?text=M" alt="عکس پروفایل">
                         <label for="profile-pic-upload" class="change-pic-label">تغییر عکس</label>
                         <input type="file" id="profile-pic-upload" style="display: none;">
                     </div>
                     <div class="profile-welcome">
-                        <h3>خوش آمدید، کاربر عزیز!</h3>
+                        <!-- به این h3 یک id دادیم -->
+                        <h3 id="profile-welcome-name">در حال بارگذاری...</h3>
                         <p>در اینجا می‌توانید اطلاعات خود را ویرایش کنید.</p>
                     </div>
                 </div>
                 <form class="profile-form">
                     <div class="form-group">
                         <label for="email">ایمیل:</label>
-                        <input type="email" id="email" name="email" value="user@example.com" disabled>
+                        <!-- ایمیل فقط خواندنی است و مقدار آن توسط جاوا اسکریپت پر می‌شود -->
+                        <input type="email" id="email" name="email" readonly>
                     </div>
-                    <div class="form-group">
-                        <label for="phone">شماره تلفن:</label>
-                        <input type="tel" id="phone" name="phone" value="09123456789">
-                    </div>
+                    
+                    <!-- بخش شماره تلفن به طور کامل حذف شد -->
+
                     <hr class="divider">
                     <h4>تغییر رمز عبور</h4>
                     <div class="form-group">
-                        <label for="current-password">رمز عبور فعلی:</label>
-                        <input type="password" id="current-password" name="current-password" placeholder="برای امنیت، رمز فعلی را وارد کنید">
-                    </div>
-                    <div class="form-group">
                         <label for="new-password">رمز عبور جدید:</label>
-                        <input type="password" id="new-password" name="new-password" placeholder="رمز عبور جدید را وارد کنید">
+                        <input type="password" id="new-password" name="new-password" placeholder="برای تغییر، رمز جدید را وارد کنید">
                     </div>
                     <button type="submit" class="payment-button">ذخیره تغییرات</button>
                 </form>
@@ -75,8 +68,9 @@
         </div>
     </footer>
 
-    <!-- 3. فراخوانی اسکریپت مدیریت جلسه -->
+    <!-- اسکریپت‌های لازم برای این صفحه -->
     <script src="session-manager.js"></script>
+    <script src="profile.js"></script>
 
 </body>
 </html>
