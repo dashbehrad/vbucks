@@ -3,21 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- عنوان صفحه تغییر کرد -->
     <title>تکمیل خرید | فروشگاه ویباکس میرزایی</title>
     <link rel="stylesheet" href="style.css">
+    <!-- 1. افزودن کتابخانه Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
 
+    <!-- 2. هدر به‌روز شده با کلاس‌های کنترلی -->
     <header>
         <div class="container header-container">
             <div class="logo-area">
-                <!-- نام فروشگاه در هدر تغییر کرد -->
                 <h1><a href="index.html" class="logo-link">فروشگاه ویباکس میرزایی</a></h1>
             </div>
-            <nav class="auth-nav">
+            <!-- دکمه‌های حالت خروج -->
+            <nav class="auth-nav logged-out">
                 <a href="login.html" class="btn btn-secondary">ورود</a>
                 <a href="signup.html" class="btn btn-primary">ثبت نام</a>
+            </nav>
+            <!-- دکمه‌های حالت ورود (در ابتدا مخفی) -->
+            <nav class="auth-nav logged-in" style="display: none;">
+                <a href="profile.html" class="btn btn-primary">پروفایل من</a>
+                <a href="#" class="btn btn-logout">خروج</a>
             </nav>
         </div>
     </header>
@@ -61,11 +68,12 @@
 
     <footer>
         <div class="container">
-            <!-- نام فروشگاه در فوتر تغییر کرد -->
             <p>&copy; ۱۴۰۳ - تمامی حقوق برای فروشگاه ویباکس میرزایی محفوظ است.</p>
         </div>
     </footer>
 
+    <!-- 3. فراخوانی اسکریپت‌ها (هر دو مورد نیاز است) -->
+    <script src="session-manager.js"></script>
     <script src="app.js"></script>
 
 </body>
