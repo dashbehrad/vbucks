@@ -1,7 +1,7 @@
 // فایل: session-manager.js (نسخه نهایی و کامل)
 
-const SM_SUPABASE_URL = 'آدرس_URL_پروژه_شما_در_SUPABASE';
-const SM_SUPABASE_ANON_KEY = 'کلید_ANON_PUBLIC_شما_در_SUPABASE';
+const SM_SUPABASE_URL = 'https://tcamhroyhkmktogtvyoy.supabase.co';
+const SM_SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRjYW1ocm95aGtta3RvZ3R2eW95Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTQ1NzUwODksImV4cCI6MjA3MDE1MTA4OX0.TVc2ijRRIEMv4s-eO5XG_IGXuCq5v_sRc7s3yDhLYd0';
 
 const sm_supabase = window.supabase.createClient(SM_SUPABASE_URL, SM_SUPABASE_ANON_KEY);
 
@@ -62,3 +62,4 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
