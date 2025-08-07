@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>پروفایل کاربری | فروشگاه ویباکس میرزایی</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="container header-container">
+            <div class="logo-area">
+                <h1><a href="index.html" class="logo-link">فروشگاه ویباکس میرزایی</a></h1>
+            </div>
+            <!-- هدر در حالت ورود کرده -->
+            <nav class="auth-nav">
+                <a href="profile.html" class="btn btn-primary">پروفایل من</a>
+                <a href="index.html" class="btn btn-logout">خروج</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="profile-container">
+                <h2>اطلاعات حساب کاربری</h2>
+
+                <!-- بخش عکس پروفایل -->
+                <div class="profile-header">
+                    <div class="profile-picture">
+                        <img src="default.jpg" alt="عکس پروفایل">
+                        <label for="profile-pic-upload" class="change-pic-label">تغییر عکس</label>
+                        <input type="file" id="profile-pic-upload" style="display: none;">
+                    </div>
+                    <div class="profile-welcome">
+                        <h3>خوش آمدید، کاربر عزیز!</h3>
+                        <p>در اینجا می‌توانید اطلاعات خود را ویرایش کنید.</p>
+                    </div>
+                </div>
+
+                <!-- فرم ویرایش اطلاعات -->
+                <form class="profile-form">
+                    <div class="form-group">
+                        <label for="email">ایمیل:</label>
+                        <input type="email" id="email" name="email" value="user@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">شماره تلفن:</label>
+                        <input type="tel" id="phone" name="phone" value="09123456789">
+                    </div>
+
+                    <hr class="divider">
+
+                    <h4>تغییر رمز عبور</h4>
+                    <div class="form-group">
+                        <label for="current-password">رمز عبور فعلی:</label>
+                        <input type="password" id="current-password" name="current-password" placeholder="برای امنیت، رمز فعلی را وارد کنید">
+                    </div>
+                    <div class="form-group">
+                        <label for="new-password">رمز عبور جدید:</label>
+                        <input type="password" id="new-password" name="new-password" placeholder="رمز عبور جدید را وارد کنید">
+                    </div>
+
+                    <button type="submit" class="payment-button">ذخیره تغییرات</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; ۱۴۰۳ - تمامی حقوق برای فروشگاه ویباکس میرزایی محفوظ است.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
