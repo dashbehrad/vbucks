@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ثبت نام | فروشگاه ویباکس میرزایی</title>
+    <title>پروفایل کاربری | فروشگاه ویباکس میرزایی</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -30,28 +30,31 @@
 
     <main>
         <div class="container">
-            <div class="form-container">
-                <h2>ایجاد حساب کاربری جدید</h2>
-                <form id="signup-form">
-                    <div class="form-group">
-                        <label for="fullname">نام و نام خانوادگی:</label>
-                        <input type="text" id="fullname" name="fullname" placeholder="نام کامل خود را وارد کنید" required>
+            <div class="profile-container">
+                <h2>اطلاعات حساب کاربری</h2>
+                <div class="profile-header">
+                    <div class="profile-picture">
+                        <img src="default.jpg" alt="عکس پروفایل">
+                        <label for="profile-pic-upload" class="change-pic-label">تغییر عکس</label>
+                        <input type="file" id="profile-pic-upload" style="display: none;">
                     </div>
+                    <div class="profile-welcome">
+                        <h3 id="profile-welcome-name">در حال بارگذاری...</h3>
+                        <p>در اینجا می‌توانید اطلاعات خود را ویرایش کنید.</p>
+                    </div>
+                </div>
+                <form class="profile-form">
                     <div class="form-group">
                         <label for="email">ایمیل:</label>
-                        <input type="email" id="email" name="email" placeholder="آدرس ایمیل خود را وارد کنید" required>
+                        <input type="email" id="email" name="email" readonly>
                     </div>
+                    <hr class="divider">
+                    <h4>تغییر رمز عبور</h4>
                     <div class="form-group">
-                        <label for="password">رمز عبور:</label>
-                        <input type="password" id="password" name="password" placeholder="یک رمز عبور قوی انتخاب کنید" required>
+                        <label for="new-password">رمز عبور جدید:</label>
+                        <input type="password" id="new-password" name="new-password" placeholder="برای تغییر، رمز جدید را وارد کنید">
                     </div>
-                    <div class="form-group form-check">
-                        <input type="checkbox" id="remember-me" name="remember-me" checked>
-                        <label for="remember-me">مرا به خاطر بسپار</label>
-                    </div>
-                    <button type="submit" class="payment-button">ثبت نام</button>
-                    <p id="form-message" style="margin-top: 15px; text-align: center;"></p>
-                    <p class="form-switch">قبلاً ثبت نام کرده‌اید؟ <a href="login.html">وارد شوید</a></p>
+                    <button type="submit" class="payment-button">ذخیره تغییرات</button>
                 </form>
             </div>
         </div>
@@ -66,7 +69,7 @@
     <!-- اسکریپت‌های ضروری -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="session-manager.js"></script>
-    <script src="auth.js"></script>
+    <script src="profile.js"></script>
 
 </body>
 </html>
