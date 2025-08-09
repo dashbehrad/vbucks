@@ -5,23 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>تکمیل خرید | فروشگاه ویباکس میرزایی</title>
     <link rel="stylesheet" href="style.css">
-    <!-- 1. افزودن کتابخانه Supabase -->
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
+    <!-- Starfield Background -->
+    <div id='stars1'></div>
+    <div id='stars2'></div>
+    <div id='stars3'></div>
 
-    <!-- 2. هدر به‌روز شده با کلاس‌های کنترلی -->
     <header>
         <div class="container header-container">
             <div class="logo-area">
                 <h1><a href="index.html" class="logo-link">فروشگاه ویباکس میرزایی</a></h1>
             </div>
-            <!-- دکمه‌های حالت خروج -->
             <nav class="auth-nav logged-out">
                 <a href="login.html" class="btn btn-secondary">ورود</a>
                 <a href="signup.html" class="btn btn-primary">ثبت نام</a>
             </nav>
-            <!-- دکمه‌های حالت ورود (در ابتدا مخفی) -->
             <nav class="auth-nav logged-in" style="display: none;">
                 <a href="profile.html" class="btn btn-primary">پروفایل من</a>
                 <a href="#" class="btn btn-logout">خروج</a>
@@ -56,10 +55,6 @@
                         <label for="epic-password">رمز عبور اکانت اپیک گیمز:</label>
                         <input type="password" id="epic-password" name="epic-password" placeholder="••••••••" required>
                     </div>
-                    <div class="form-group">
-                        <label for="phone">شماره تلفن (برای پشتیبانی):</label>
-                        <input type="tel" id="phone" name="phone" placeholder="در صورت بروز مشکل با شما تماس می‌گیریم">
-                    </div>
                     <button type="submit" class="payment-button">پرداخت نهایی و اتصال به درگاه</button>
                 </form>
             </div>
@@ -72,7 +67,8 @@
         </div>
     </footer>
 
-    <!-- 3. فراخوانی اسکریپت‌ها (هر دو مورد نیاز است) -->
+    <!-- اسکریپت‌های ضروری -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="session-manager.js"></script>
     <script src="app.js"></script>
 
