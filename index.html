@@ -7,16 +7,22 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Starfield Background -->
+    <div id='stars1'></div>
+    <div id='stars2'></div>
+    <div id='stars3'></div>
 
     <header>
         <div class="container header-container">
             <div class="logo-area">
                 <h1><a href="index.html" class="logo-link">فروشگاه ویباکس میرزایی</a></h1>
             </div>
+            <!-- دکمه‌های حالت خروج -->
             <nav class="auth-nav logged-out">
                 <a href="login.html" class="btn btn-secondary">ورود</a>
                 <a href="signup.html" class="btn btn-primary">ثبت نام</a>
             </nav>
+            <!-- دکمه‌های حالت ورود (در ابتدا مخفی) -->
             <nav class="auth-nav logged-in" style="display: none;">
                 <a href="profile.html" class="btn btn-primary">پروفایل من</a>
                 <a href="#" class="btn btn-logout">خروج</a>
@@ -24,6 +30,7 @@
         </div>
     </header>
 
+    <!-- بخش خوش‌آمدگویی کاربر (فقط در حالت ورود) -->
     <div class="user-welcome-banner logged-in" style="display: none;">
         <div class="container">
             <p id="welcome-message">در حال بارگذاری اطلاعات...</p>
@@ -74,4 +81,3 @@
 
 </body>
 </html>
-
