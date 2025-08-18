@@ -1,3 +1,5 @@
+// فایل: profile.js (نسخه اشکال‌زدا)
+
 const PROFILE_SUPABASE_URL = 'https://tcamhroyhkmktogtvyoy.supabase.co';
 const PROFILE_SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRjYW1ocm95aGtta3RvZ3R2eW95Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTQ1NzUwODksImV4cCI6MjA3MDE1MTA4OX0.TVc2ijRRIEMv4s-eO5XG_IGXuCq5v_sRc7s3yDhLYd0';
 
@@ -5,7 +7,7 @@ const supabase = window.supabase.createClient(PROFILE_SUPABASE_URL, PROFILE_SUPA
 
 let currentUser = null;
 
-// --- تابع برای آپلود آواتار (بدون تغییر) ---
+// تابع آپلود آواتار بدون تغییر باقی می‌ماند
 async function uploadAvatar(event) {
     const fileInput = event.target;
     const file = fileInput.files[0];
@@ -41,68 +43,63 @@ async function uploadAvatar(event) {
     }
 }
 
-// --- تابع برای مدیریت فرم پروفایل (بخش جدید و مهم) ---
+// تابع مدیریت فرم پروفایل با لاگ‌های اشکال‌زدایی
 async function handleProfileUpdate(event) {
-    event.preventDefault(); // جلوگیری از رفرش شدن صفحه
+    event.preventDefault();
+    console.log("دکمه ذخیره تغییرات کلیک شد."); // لاگ ۱
+
     const messageElement = document.getElementById('profile-message');
     const newPassword = document.getElementById('new-password').value;
     const confirmPassword = document.getElementById('confirm-password').value;
     const currentPassword = document.getElementById('current-password').value;
 
-    // --- منطق تغییر رمز عبور ---
-    // فقط در صورتی ادامه بده که کاربر رمز جدیدی وارد کرده باشد
     if (newPassword) {
-        // ۱. بررسی اینکه آیا رمز فعلی وارد شده است (برای امنیت UI)
+        console.log("کاربر قصد تغییر رمز را دارد."); // لاگ ۲
+
         if (!currentPassword) {
             messageElement.textContent = 'برای تغییر رمز، باید رمز عبور فعلی خود را وارد کنید.';
             messageElement.style.color = '#f44336';
             return;
         }
-
-        // ۲. بررسی اینکه آیا دو فیلد رمز جدید با هم مطابقت دارند
         if (newPassword !== confirmPassword) {
             messageElement.textContent = 'رمزهای عبور جدید با یکدیگر مطابقت ندارند.';
             messageElement.style.color = '#f44336';
             return;
         }
-
-        // ۳. بررسی طول رمز جدید (حداقل ۶ کاراکتر طبق پیش‌فرض Supabase)
         if (newPassword.length < 6) {
             messageElement.textContent = 'رمز عبور جدید باید حداقل ۶ کاراکتر باشد.';
             messageElement.style.color = '#f44336';
             return;
         }
 
-        messageElement.textContent = 'در حال به‌روزرسانی رمز عبور...';
+        messageElement.textContent = 'در حال ارسال درخواست به Supabase...';
         messageElement.style.color = '#ccc';
+        console.log("در حال فراخوانی supabase.auth.updateUser..."); // لاگ ۳
 
-        // ۴. ارسال درخواست تغییر رمز به Supabase
-        const { error } = await supabase.auth.updateUser({
+        const { data, error } = await supabase.auth.updateUser({
             password: newPassword
         });
 
         if (error) {
-            console.error('Error updating password:', error);
-            // یک پیام خطای عمومی‌تر نمایش می‌دهیم چون ممکن است رمز فعلی اشتباه باشد
-            messageElement.textContent = 'خطا در تغییر رمز عبور. لطفاً دوباره تلاش کنید.';
+            // این مهم‌ترین بخش است! خطای واقعی را در کنسول چاپ می‌کند
+            console.error("خطای Supabase هنگام تغییر رمز:", error); // لاگ ۴ (خطا)
+            messageElement.textContent = 'خطا در تغییر رمز عبور: ' + error.message;
             messageElement.style.color = '#f44336';
         } else {
+            console.log("رمز با موفقیت در Supabase تغییر کرد:", data); // لاگ ۴ (موفقیت)
             messageElement.textContent = 'رمز عبور شما با موفقیت تغییر کرد!';
             messageElement.style.color = '#4CAF50';
-            // پاک کردن فیلدهای رمز عبور پس از موفقیت
             document.getElementById('current-password').value = '';
             document.getElementById('new-password').value = '';
             document.getElementById('confirm-password').value = '';
         }
     } else {
-        // اگر کاربر رمز جدیدی وارد نکرده بود، فقط یک پیام کلی نمایش بده
         messageElement.textContent = 'تغییری برای ذخیره وجود ندارد.';
         messageElement.style.color = '#ccc';
     }
 }
 
-
-// --- تابع اصلی که هنگام بارگذاری صفحه اجرا می‌شود ---
+// تابع اصلی بدون تغییر
 document.addEventListener('DOMContentLoaded', async () => {
     const { data: { session }, error } = await supabase.auth.getSession();
     if (error || !session) {
@@ -110,15 +107,11 @@ document.addEventListener('DOMContentLoaded', async () => {
         return;
     }
     currentUser = session.user;
-
-    // قرار دادن اطلاعات اولیه در صفحه
     document.getElementById('profile-welcome-name').textContent = `خوش آمدید، ${currentUser.user_metadata.full_name || 'کاربر عزیز'}!`;
     document.getElementById('email').value = currentUser.email;
     if (currentUser.user_metadata.avatar_url) {
         document.getElementById('profile-image').src = currentUser.user_metadata.avatar_url;
     }
-
-    // اتصال رویدادها به المان‌ها
     document.getElementById('profile-pic-upload').addEventListener('change', uploadAvatar);
     document.getElementById('profile-form').addEventListener('submit', handleProfileUpdate);
 });
