@@ -7,8 +7,13 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Starfield Background -->
+    <div id='stars1'></div>
+    <div id='stars2'></div>
+    <div id='stars3'></div>
 
     <header>
+        <!-- هدر شما بدون تغییر باقی می‌ماند -->
         <div class="container header-container">
             <div class="logo-area">
                 <h1><a href="index.html" class="logo-link">فروشگاه ویباکس میرزایی</a></h1>
@@ -28,18 +33,23 @@
         <div class="container">
             <div class="profile-container">
                 <h2>اطلاعات حساب کاربری</h2>
+                <!-- یک بخش برای نمایش پیام‌های موفقیت یا خطا -->
+                <p id="profile-message" style="text-align: center; margin-bottom: 20px;"></p>
+
                 <div class="profile-header">
                     <div class="profile-picture">
-                        <img src="default.jpg" alt="عکس پروفایل">
+                        <!-- به تگ img یک id دادیم -->
+                        <img src="https://via.placeholder.com/100/FFFFFF/8A2BE2?text=M" alt="عکس پروفایل" id="profile-image">
                         <label for="profile-pic-upload" class="change-pic-label">تغییر عکس</label>
-                        <input type="file" id="profile-pic-upload" style="display: none;">
+                        <!-- این input برای انتخاب فایل است -->
+                        <input type="file" id="profile-pic-upload" accept="image/*" style="display: none;">
                     </div>
                     <div class="profile-welcome">
                         <h3 id="profile-welcome-name">در حال بارگذاری...</h3>
                         <p>در اینجا می‌توانید اطلاعات خود را ویرایش کنید.</p>
                     </div>
                 </div>
-                <form class="profile-form">
+                <form class="profile-form" id="profile-form">
                     <div class="form-group">
                         <label for="email">ایمیل:</label>
                         <input type="email" id="email" name="email" readonly>
@@ -69,4 +79,3 @@
 
 </body>
 </html>
-
