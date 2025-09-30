@@ -22,46 +22,35 @@ body {
     overflow-x: hidden; /* جلوگیری از اسکرول افقی به خاطر ستاره‌ها */
 }
 
-/* --- Starfield Background Animation --- */
-/* این تابع برای ساختن سایه‌های ستاره‌ها استفاده می‌شود */
-@function multiple-box-shadow($n) {
-    $value: '#{random(2000)}px #{random(2000)}px #FFF';
-    @for $i from 2 through $n {
-        $value: '#{$value} , #{random(2000)}px #{random(2000)}px #FFF';
-    }
-    @return unquote($value);
-}
-
-@keyframes move-stars {
-    from { transform: translateY(0px); }
-    to { transform: translateY(-2000px); }
-}
-
-#stars1, #stars2, #stars3 {
-    width: 2px;
-    height: 2px;
-    background: transparent;
-    box-shadow: multiple-box-shadow(700);
-    animation: move-stars 200s linear infinite;
+/* --- Ambient Glow + Noise Overlay (modern, CSS-only) --- */
+/* لایه‌ درخشش نرم پس‌زمینه */
+body::before {
+    content: "";
     position: fixed;
-    top: 0;
-    left: 0;
+    inset: -20vmax;
+    pointer-events: none;
+    background:
+        radial-gradient(40vmax 40vmax at 10% 20%, rgba(138,43,226,0.18), transparent 60%),
+        radial-gradient(40vmax 40vmax at 90% 30%, rgba(76,175,80,0.12), transparent 60%),
+        radial-gradient(35vmax 35vmax at 50% 85%, rgba(0,188,212,0.10), transparent 60%);
+    filter: blur(60px) saturate(120%);
     z-index: -1;
 }
 
-#stars2 {
-    width: 3px;
-    height: 3px;
-    box-shadow: multiple-box-shadow(200);
-    animation-duration: 100s;
+/* لایه نویز بسیار ظریف برای بافت مدرن */
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 140 140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='table' tableValues='0 0 0 0 0 0.04 0.06 0.08'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
+    opacity: 0.25;
+    mix-blend-mode: overlay;
+    z-index: -1;
 }
 
-#stars3 {
-    width: 4px;
-    height: 4px;
-    box-shadow: multiple-box-shadow(100);
-    animation-duration: 50s;
-}
+/* عناصر ستاره قبلی را غیرفعال می‌کنیم تا تداخل نداشته باشد */
+#stars1, #stars2, #stars3 { display: none; }
 
 
 /* --- Header --- */
@@ -79,7 +68,7 @@ header {
 .btn, .buy-button, .payment-button {
     position: relative;
     overflow: hidden; /* برای افکت درخشش */
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.4s ease;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
@@ -110,6 +99,12 @@ header {
 .btn:active, .buy-button:active, .payment-button:active {
     transform: translateY(1px) scale(0.98);
     box-shadow: 0 1px 2px rgba(0,0,0,0.4);
+}
+
+/* حالت دسترسی بهتر هنگام فوکوس */
+.btn:focus-visible, .buy-button:focus-visible, .payment-button:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(138, 43, 226, 0.45), 0 8px 20px rgba(138, 43, 226, 0.35);
 }
 
 
@@ -149,6 +144,24 @@ main h2 {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
 }
 
+/* حاشیه گرادیانی متحرک مدرن برای کارت‌ها */
+.product-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(120deg, rgba(138,43,226,0.8), rgba(0,188,212,0.6), rgba(76,175,80,0.7));
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude;
+    opacity: 0.0;
+    transition: opacity 0.35s ease;
+}
+
+.product-card:hover::before { opacity: 0.6; }
+
 .product-card img {
     max-width: 100px;
     margin-bottom: 15px;
@@ -179,6 +192,20 @@ main h2 {
     cursor: pointer;
     text-decoration: none;
     display: inline-block;
+}
+
+/* دکمه خرید با گرادیان متحرک لطیف */
+.buy-button {
+    background-image: linear-gradient(135deg, #8A2BE2, #6e1dc7 40%, #9b46ff);
+}
+
+.buy-button:hover {
+    background-position: 20% 50%;
+    box-shadow: 0 8px 24px rgba(138, 43, 226, 0.45);
+}
+
+.payment-button {
+    background-image: linear-gradient(135deg, #4CAF50, #2e7d32 50%, #66bb6a);
 }
 
 footer {
@@ -243,3 +270,10 @@ footer {
 .user-welcome-banner { background-color: #2a2a2a; border-bottom: 1px solid #444; padding: 10px 0; text-align: center; }
 .user-welcome-banner p { margin: 0; color: #e0e0e0; font-size: 1rem; }
 .user-welcome-banner strong { color: #8A2BE2; }
+
+/* اسکرول نرم و احترام به کاهش حرکت */
+html { scroll-behavior: smooth; }
+
+@media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+}
